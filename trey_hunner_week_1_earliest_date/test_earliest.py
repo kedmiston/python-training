@@ -1,7 +1,7 @@
 import unittest
 
 
-from earliest import get_earliest, get_earliest_bonus, treys_bonus_solution
+from .earliest import get_earliest, get_earliest_bonus, treys_bonus_solution
 
 
 class GetEarliestTests(unittest.TestCase):
