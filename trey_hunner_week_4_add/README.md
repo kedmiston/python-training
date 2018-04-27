@@ -50,9 +50,11 @@ SOLUTIONS email (4/25/2018 @ 7:00 AM):
 
 Hi! 👋
 
-If you haven't attempted to solve add yet, close this email and go do that now before reading on. If you have attempted solving add, read on...
+If you haven't attempted to solve add yet, close this email and go do that now before reading on. If you have attempted
+solving add, read on...
 
-This function has to make a new list and that new list has to have more new lists inside it. And we're going to need to loop over our old lists of lists while doing that.
+This function has to make a new list and that new list has to have more new lists inside it. And we're going to need to
+loop over our old lists of lists while doing that.
 
 One of the trickier parts of this problem is the fact that you'll need to loop over two lists at the same time.
 
@@ -66,7 +68,8 @@ def add(matrix1, matrix2):
             row.append(matrix1[i][j] + matrix2[i][j])
         combined.append(row)
     return combined
-If you read my article on looping with indexes in Python you'll see that this isn't the best way to loop over two lists in Python (in fact it isn't even the best way to loop with indexes in general).
+If you read my article on looping with indexes in Python you'll see that this isn't the best way to loop over two lists
+in Python (in fact it isn't even the best way to loop with indexes in general).
 
 Python's zip function can be handy for looping over two lists at the same time.
 def add(matrix1, matrix2):
@@ -78,9 +81,11 @@ def add(matrix1, matrix2):
             row.append(items[0] + items[1])
         combined.append(row)
     return combined
-Notice we're using zip twice because we need to loop over two lists at once for both the outer lists and the inner lists.
+Notice we're using zip twice because we need to loop over two lists at once for both the outer lists and the inner
+lists.
 
-Note that we have hard-coded indexes here. We can make our code more readable by embracing multiple assignment in Python instead of hard-coding indexes.
+Note that we have hard-coded indexes here. We can make our code more readable by embracing multiple assignment in
+Python instead of hard-coding indexes.
 def add(matrix1, matrix2):
     """Add corresponding numbers in given 2-D matrices."""
     combined = []
@@ -90,7 +95,8 @@ def add(matrix1, matrix2):
             row.append(n + m)
         combined.append(row)
     return combined
-If you've been doing Python for a little while you might spot a bit of code that we could rewrite here. We're making an new empty list, looping over an old list, and appending to the new list each time we loop like this:
+If you've been doing Python for a little while you might spot a bit of code that we could rewrite here. We're making
+an new empty list, looping over an old list, and appending to the new list each time we loop like this:
 row = []
 for n, m in zip(row1, row2):
     row.append(n + m)
@@ -124,14 +130,16 @@ def add(matrix1, matrix2):
     return combined
 If you're curious about how to copy-paste from a for loop to a comprehension read my article on list comprehensions.
 
-I like to start by writing my comprehensions on one line of code. This one might be short enough to be readable on one line though:
+I like to start by writing my comprehensions on one line of code. This one might be short enough to be readable on one
+line though:
 def add(matrix1, matrix2):
     """Add corresponding numbers in given 2-D matrices."""
     combined = []
     for row1, row2 in zip(matrix1, matrix2):
         combined.append([n + m for n, m in zip(row1, row2)])
     return combined
-You might notice that again we have something that we could copy-paste into a comprehension (we're making an empty combined list and then appending while looping).
+You might notice that again we have something that we could copy-paste into a comprehension (we're making an empty
+combined list and then appending while looping).
 
 We can copy-paste this loop into another comprehension:
 def add(matrix1, matrix2):
@@ -152,7 +160,8 @@ Okay let's try to solve the first bonus.
 
 For the first bonus we need to accept any number of matrices.
 
-To do this we'll need to accept any number of arguments to our function and pass any number of arguments to the zip function.  We can use the * operator for this.
+To do this we'll need to accept any number of arguments to our function and pass any number of arguments to the zip
+function.  We can use the * operator for this.
 def add(*matrices):
     """Add corresponding numbers in given 2-D matrices."""
     combined = []
@@ -165,7 +174,8 @@ def add(*matrices):
             row.append(total)
         combined.append(row)
     return combined
-Note that we've gone back to a for loops approach here.  We're no longer just appending in our inner loop because we need to find a summation first.
+Note that we've gone back to a for loops approach here.  We're no longer just appending in our inner loop because we
+need to find a summation first.
 
 We can use Python's sum function to sum up our values though:
 def add(*matrices):
@@ -177,14 +187,17 @@ def add(*matrices):
             row.append(sum(values))
         combined.append(row)
     return combined
-You might notice that this code has the same structure as our original nested loops.  We could copy-paste this into two nested comprehensions again:
+You might notice that this code has the same structure as our original nested loops.  We could copy-paste this into
+two nested comprehensions again:
 def add(*matrices):
     """Add corresponding numbers in given 2-D matrices."""
     return [
         [sum(values) for values in zip(*rows)]
         for rows in zip(*matrices)
     ]
-Notice that the existence of the sum function and the fact that the zip function accepts any number of arguments were particularly helpful here.  We couldn't have written this code as comprehensions without these essential helper functions.
+Notice that the existence of the sum function and the fact that the zip function accepts any number of arguments were
+particularly helpful here.  We couldn't have written this code as comprehensions without these essential helper
+functions.
 
 Bonus #2
 For the second bonus, we were supposed to raise a ValueError exception when our lists-of-lists were different shapes.
@@ -200,7 +213,9 @@ def add(matrix1, matrix2):
         [n + m for n, m in zip(row1, row2)]
         for row1, row2 in zip(matrix1, matrix2)
     ]
-Notice that this works because you can deeply compare lists in Python.  We're calculating the length of each of the inner lists and asserting that the outer lists have the same length and that the inner lists all have the same length... all in a single if statement!
+Notice that this works because you can deeply compare lists in Python.  We're calculating the length of each of the
+inner lists and asserting that the outer lists have the same length and that the inner lists all have the same
+length... all in a single if statement!
 
 If we wanted to do this with any number of matrices, we'd need to somehow check for equality on many different lists.
 
@@ -217,9 +232,12 @@ def add(*matrices):
         [sum(values) for values in zip(*rows)]
         for rows in zip(*matrices)
     ]
-This might seem a little complex. We're using a set here because set items are unique so if we pass in objects that are equal, we should only end up with 1 item in our set.
+This might seem a little complex. We're using a set here because set items are unique so if we pass in objects that
+are equal, we should only end up with 1 item in our set.
 
-We can't pass in a list because lists aren't "hashable" because they're mutable (they can be changed).  Tuples can be hashable so we're passing a generator expression into the tuple constructor inside a set comprehension to make a set of tuples.
+We can't pass in a list because lists aren't "hashable" because they're mutable (they can be changed).  Tuples can be
+hashable so we're passing a generator expression into the tuple constructor inside a set comprehension to make a set
+of tuples.
 
 Here's another answer:
 from itertools import zip_longest
@@ -237,9 +255,12 @@ This one is somewhat clever and may not be the clearest answer.
 
 Python's built-in zip function stops at the shortest list when zipping.
 
-The zip_longest function in the itertools module uses a fill value to return missing items so the resulting list is as long as the longest gives list.
+The zip_longest function in the itertools module uses a fill value to return missing items so the resulting list is
+as long as the longest gives list.
 
-The default fill value for zip_longest is None, so looping over None would fail and adding None to a number would fail too.  In both cases we'd get a TypeError which is why we're catching a TypeError to handle the case where matrices aren't the same size.
+The default fill value for zip_longest is None, so looping over None would fail and adding None to a number would
+fail too.  In both cases we'd get a TypeError which is why we're catching a TypeError to handle the case where
+matrices aren't the same size.
 
 That "raise X from Y" syntax we're using is a Python 3 feature to make tracebacks more clear.
 
@@ -256,8 +277,10 @@ def add(*matrices):
         [sum(values) for values in zip(*rows)]
         for rows in zip(*matrices)
     ]
-Here we're using a get_shape function to get our list of list lengths for each list and we're checking whether the shapes of each matrix is the same as the shape of the first one (matrices[0]).
+Here we're using a get_shape function to get our list of list lengths for each list and we're checking whether the
+shapes of each matrix is the same as the shape of the first one (matrices[0]).
 
-This is my favorite of the answers to the second bonus, but I don't find any of them considerably more clear or succinct than the others.
+This is my favorite of the answers to the second bonus, but I don't find any of them considerably more clear or
+succinct than the others.
 
 I hope you learned something from these solutions. 😄
