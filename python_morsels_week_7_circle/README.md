@@ -1,4 +1,4 @@
-CHALLENGE Email (5/7/2018 @ 7:00 AM):
+CHALLENGE Email (5/14/2018 @ 7:00 AM):
 
 Heya! 😄
 
@@ -61,7 +61,7 @@ says (there's a more specific name for these but I'm only going to give you this
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SOLUTIONS email (5/9/2018 @ 7:00 AM):
+SOLUTIONS email (5/16/2018 @ 7:00 AM):
 
 Hello!
 
