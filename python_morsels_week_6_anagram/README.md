@@ -89,7 +89,8 @@ def is_anagram(word1, word2):
     return Counter(word1) == Counter(word2)
 Counter is essentially a multi-set in that it's sort of like a set that keeps track of the number of times each item
 (characters in this case) has been seen. If you'd like a refresher on the various ways of counting occurrences of
-things in Python, check out this article I wrote on counting things in Python.
+things in Python, check out this article I wrote on counting things in Python
+(http://t.dripemail2.com/c/eyJhY2NvdW50X2lkIjoiMzk0NTg2MCIsImRlbGl2ZXJ5X2lkIjoiMjYyNjQxMzUyNiIsInVybCI6Imh0dHA6Ly90cmV5aHVubmVyLmNvbS8yMDE1LzExL2NvdW50aW5nLXRoaW5ncy1pbi1weXRob24vP19fcz1wNTIyZ2hreXVucHc2a292cWpxcyJ9).
 
 You may have noticed that we don't necessarily need dictionaries of letter counts. The thing we really care about is
 whether the two words have the same letters and each occurs the same number of times. Comparing dictionaries of letter
@@ -151,8 +152,9 @@ The "(c for c in word1 if c in alphabet)" is a generator expression, which is li
 back a lazy generator instead of a list.
 
 If you're new to Python, list comprehensions and generator expressions are probably new, weird, and scary. I have a
-
-talk called Comprehensible Comprehensions that explains how list comprehensions work and how generator expressions are
+talk called Comprehensible Comprehensions
+(http://t.dripemail2.com/c/eyJhY2NvdW50X2lkIjoiMzk0NTg2MCIsImRlbGl2ZXJ5X2lkIjoiMjYyNjQxMzUyNiIsInVybCI6Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9NV9jSkljZ003cndcdTAwMjZfX3M9cDUyMmdoa3l1bnB3NmtvdnFqcXMifQ)
+that explains how list comprehensions work and how generator expressions are
 different. I'd recommend watching that talk if you're new to these concepts.
 
 We're using the condition "if c in alphabet" (where alphabet is a string of lowercase letters) to filter down our
