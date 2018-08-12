@@ -178,7 +178,8 @@ So we're maxing a deque with our iterable and setting the maximum length (we cou
 but we chose to use a named one instead) and then converting that deque to a list so that our tests (which expect a
 list) pass.
 
-If you've never seen deque used before, I suggest look at the deque page on the Python Module of the Week website.
+If you've never seen deque used before, I suggest look at the deque page on the Python Module of the Week website
+(http://t.dripemail2.com/c/eyJhY2NvdW50X2lkIjoiMzk0NTg2MCIsImRlbGl2ZXJ5X2lkIjoiMjU4NDIwODQ2OCIsInVybCI6Imh0dHBzOi8vcHltb3R3LmNvbS8zL2NvbGxlY3Rpb25zL2RlcXVlLmh0bWw_X19zPXA1MjJnaGt5dW5wdzZrb3ZxanFzIn0).
 
 I hope these solutions taught you something new about slicing, using * expressions in list literals, slice objects,
 or deque. 😄
