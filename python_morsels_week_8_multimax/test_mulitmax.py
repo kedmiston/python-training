@@ -42,12 +42,12 @@ class MultiMaxTests(unittest.TestCase):
         self.assertIs(outputs[2], expected[2])
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_empty(self):
         self.assertEqual(multimax([]), [])
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_iterator(self):
         numbers = [1, 4, 2, 4, 3]
         squares = (n**2 for n in numbers)
@@ -55,7 +55,7 @@ class MultiMaxTests(unittest.TestCase):
 
     # To test the Bonus part of this exercise, comment out the following line
     @unittest.expectedFailure
-    def test_key_function(self):
+    def test_key_function(self):   # I didn't really care for the solution to this...hard to comprehend. Maybe will do it later
         words = ["alligator", "animal", "apple", "artichoke", "avalanche"]
         outputs = ["alligator", "artichoke", "avalanche"]
         self.assertEqual(multimax(words, key=len), outputs)
