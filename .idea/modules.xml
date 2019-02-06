@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/trey_hunner_list_comp_tutorial_exercises/.idea/exercises.iml" filepath="$PROJECT_DIR$/trey_hunner_list_comp_tutorial_exercises/.idea/exercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/python-training.iml" filepath="$PROJECT_DIR$/.idea/python-training.iml" />
+    </modules>
+  </component>
+</project>
