@@ -1,11 +1,11 @@
 
-def get_earliest(newer, older):
-    newer_revised = _get_revised_format(newer)
-    older_revised = _get_revised_format(older)
-    return older if newer_revised > older_revised else newer
+# def get_earliest(newer, older):
+#     newer_revised = _get_revised_format(newer)
+#     older_revised = _get_revised_format(older)
+#     return older if newer_revised > older_revised else newer
 
 
-def get_earliest_bonus(*args):
+def get_earliest(*args):
     earliest = None
     for date in args:
         earliest_revised = _get_revised_format(earliest)
