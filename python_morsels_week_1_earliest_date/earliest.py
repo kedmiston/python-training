@@ -10,7 +10,9 @@ def get_earliest_bonus(*args):
     for date in args:
         earliest_revised = _get_revised_format(earliest)
         date_revised = _get_revised_format(date)
-        if date_revised < earliest_revised or earliest_revised is None:
+        if earliest_revised is None:
+            earliest = date
+        elif date_revised < earliest_revised:
             earliest = date
     return earliest
 
