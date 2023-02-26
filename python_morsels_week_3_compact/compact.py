@@ -8,4 +8,4 @@ def compact(iterable):
         if idx == 1 or item != last_item:
             temp_list.append(item)
         last_item = item
-    return temp_list
+    return (item for item in temp_list)

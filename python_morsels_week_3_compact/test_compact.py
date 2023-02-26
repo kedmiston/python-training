@@ -1,7 +1,7 @@
 import unittest
 
 
-from .compact import compact
+from compact import compact
 
 
 class CompactTests(unittest.TestCase):
@@ -38,12 +38,20 @@ class CompactTests(unittest.TestCase):
     # To test the Bonus part of this exercise, comment out the following line
     # @unittest.expectedFailure
     def test_returns_iterator(self):
-        nums = iter([1, 2, 3])
+        nums = (n**2 for n in [1, 2, 3])
         output = compact(nums)
         self.assertEqual(iter(output), iter(output))
         self.assertEqual(next(output), 1)
-        self.assertEqual(next(nums), 2)
+        # The below line tests that the incoming iterator isn't exhausted.
+        # It may look odd to test the squares input, but this is correct
+        # because after 1 item has been consumed from the compact
+        # iterator, nums should only have 1 item consumed as well
+        self.assertEqual(next(nums), 4)
+        # A more extreme example: calling compact with an infinite iterator
+        from itertools import count
+        tens = compact(round(n, -1) for n in count())
+        self.assertEqual([next(tens) for _ in range(3)], [0, 10, 20])
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
